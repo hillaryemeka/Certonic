@@ -53,6 +53,7 @@ const Signup = () => {
       });
 
       if (response && response.data) {
+        //redirect a successfull signup here ...
         console.log(response);
       }
     } catch (error) {
