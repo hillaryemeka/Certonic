@@ -17,11 +17,9 @@ import { createNewUser } from "../api";
 const Signup = () => {
   const [type, setType] = useState("password");
   const [formData, setFormData] = React.useState({
-    name: "",
     password: "",
     email: "",
     acceptTerms: false,
-    accessToken: "accessToken",
   });
 
   const handleToggle = () => {
@@ -45,11 +43,8 @@ const Signup = () => {
     try {
       e.preventDefault();
       const response = await createNewUser({
-        name: formData?.name,
         password: formData?.password,
         email: formData?.email,
-        acceptTerms: true,
-        accessToken: "accessToken",
       });
 
       if (response && response.data) {
@@ -87,17 +82,6 @@ const Signup = () => {
             <span id="or">or</span>
           </div>
           <form>
-            <div id="email">
-              <AiOutlineUserAdd size={25} />
-              <input
-                className="email_input"
-                placeholder=" Full name"
-                type="text"
-                required
-                name="name"
-                onChange={handleChange}
-              ></input>
-            </div>
             <div id="email">
               <img alt="" src={emailSVG} />
               <input
